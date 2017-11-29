@@ -9,7 +9,7 @@ define('_DB_HOST', 'localhost');
 define('_DB_USER', 'root');
 
 //資料庫密碼
-define('_DB_PASS', '12345');
+define('_DB_PASS', 'happy');
 
 //資料庫名稱
 define('_DB_NAME', 'photographic');
