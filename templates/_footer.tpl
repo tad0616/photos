@@ -24,3 +24,23 @@
 <script src="js/global.js"></script>
 
 <script src="js/tiltfx.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // var images = ['pic1.jpg', 'pic2.jpg'];
+        // $('.img-container').css({ 'background-image': 'url(images/' + images[Math.floor(Math.random() * images.length)] + ')' });
+
+        // var txt = ['大家好', '歡迎光臨'];
+        // $('title').text(  txt[Math.floor(Math.random() * txt.length)] );
+
+
+        // $('.img-container').css('width', $(window).width());
+        $('.img-container').css('height', $(window).height());
+    });
+
+    $(window).resize(function () {
+        // $('.img-container').css('width', $(window).width());
+        $('.img-container').css('height', $(window).height());
+    });
+
+</script>

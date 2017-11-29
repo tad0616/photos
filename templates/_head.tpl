@@ -17,6 +17,7 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="css/swiper.css" rel="stylesheet" type="text/css" />
+    <link href="css/diy.css" rel="stylesheet" type="text/css">
     <!--[if lt IE 9]>
         <link rel="stylesheet" type="text/css" href="css/ie8-and-down.css" />
     <![endif]-->

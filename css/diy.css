@@ -1,0 +1,93 @@
+body, h1, h2, h3 {
+  font-family: 微軟正黑體;
+  /* font-size: 1.2rem; */
+}
+
+nav {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+img.cover {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background-color: #000;
+}
+
+/************** start 登入表單 **************/
+.form-signin,
+.form-signup {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin-heading {
+    font-size:2rem;
+    margin-bottom: 10px
+}
+.form-signin .form-signin-heading,
+.form-signup .form-signup-heading,
+.form-signin .checkbox,
+.form-signup .checkbox {
+  margin-bottom: 10px;
+}
+
+.form-signin .checkbox,
+.form-signup .checkbox {
+  font-weight: normal;
+}
+
+.form-signin .form-control,
+.form-signup .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.form-signin .form-control:focus,
+.form-signup .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="text"],
+.form-signup input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.form-signin input[type="password"],
+.form-signup input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-signin .btn,
+.form-signup .btn {
+  margin-bottom: 10px;
+}
+/*************** end 登入表單 ***************/
+
+/************ start 首頁輪播樣式 ************/
+.img-container {
+  width: 100%;
+  height: 800px;
+  background-color: #000;
+  background-image: url('../images/pic1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover !important;
+  background-position: left center;
+  color: white;
+}
+/************ end 首頁輪播樣式 ************/
+
+/************* start 內文樣式 *************/
+/************* end 內文樣式 ***************/
+
