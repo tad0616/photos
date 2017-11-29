@@ -921,9 +921,9 @@ body.min-height .homepage-4-slider-navigation.right{left: auto; right: -115px;}
 .homepage-5-container, .homepage-5-slider{position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #1e1e1e;}
 .homepage-5-slider .swiper-container{height: 100%;}
 .tilt {overflow: hidden; position: absolute; width: 100%; height: 100%; left: 0; top: 0;}
-.tilt__back, .tilt__front {width: 100%; height: 100%; background-position: 50% 50%; background-repeat: no-repeat; background-size: cover; -webkit-backface-visibility: hidden; backface-visibility: hidden; position: absolute; top: 0; left: 0; -webkit-transition:all 0.15s ease-out; transition:all 0.15s ease-out;}
-.homepage-5-slider .entry{background: rgba(0,0,0,.45);}
-.homepage-5-slider .entry:hover{background: rgba(0,0,0,.6);}
+ .tilt__back, .tilt__front {width: 100%; height: 100%; background-position: 50% 50%; background-repeat: no-repeat; background-size: cover; -webkit-backface-visibility: hidden; backface-visibility: hidden; position: absolute; top: 0; left: 0; -webkit-transition:all 0.15s ease-out; transition:all 0.15s ease-out; }
+.homepage-5-slider .entry{background: rgba(0,0,0,0.1);}
+.homepage-5-slider .entry:hover{background: rgba(0,0,0,0.4);}
 .homepage-5-slider .entry .text-align{position: relative; width: 68%; left: 16%;}
 .homepage-5-slider .entry .text{position: relative; padding-bottom: 100%; text-align: center;}
 .homepage-5-slider .entry .text:before, .homepage-5-slider .entry .text:after{-webkit-transition:width 0.3s ease-out, height 0.3s ease-out, opacity 0s ease-out .3s; transition:width 0.3s ease-out, height 0.3s ease-out, opacity 0s ease-out .3s; opacity: 0;}

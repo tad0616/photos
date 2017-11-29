@@ -43,4 +43,8 @@
 
         </div><!-- end .wide-container -->
 
-        
+<style>
+    footer {
+        display: none;
+    }
+</style>
