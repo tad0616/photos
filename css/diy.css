@@ -88,6 +88,10 @@ footer * { color:#fff; text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);}
   background-position: left center;
   color: white;
 }
+#title, #uploadpic {
+    padding:8px!important;
+    height:40px;
+}
 /************ end 首頁輪播樣式 ************/
 
 /************* start 內文樣式 *************/

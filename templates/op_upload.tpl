@@ -14,7 +14,7 @@
                                 <textarea name="content" id="content" rows="12" class="form-control" placeholder="請輸入作品介紹"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="uploadpic" class="col-form-label">上傳照片</label>
+                                <label for="uploadpic" class="col-form-label" style="margin-bottom:10px;">上傳照片</label>
                                 <div style="clear:both"></div>
                                 <input type="file" class="form-control" name="uploadpic" id="uploadpic">
                             </div>
@@ -31,3 +31,5 @@
             </div>
 
         </div><!-- end .wide-container -->
+
+        
