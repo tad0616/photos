@@ -1,6 +1,7 @@
 <?php
 require_once '_header.php';
-$page_title = '首頁';
+$page_title = '分類管理';
+$op         = '';
 
 // die(var_dump($_SESSION));/*檢查有沒有session*/
 
@@ -9,29 +10,20 @@ $sn = isset($_REQUEST['sn']) ? (int) $_REQUEST['sn'] : 0;
 
 /***************** ↓ 流程控制區 ↓ ********************/
 switch ($op) {
-    case 'submission':
-        $op = 'submission';
-        break;
 
     case 'insert':
         $sn = data_insert();
-        header("location: index.php?sn={$sn}");
+        header("location: index.php");
         exit;
 
-    case 'upload':
-        $op = 'upload';
-        list_classify();
-        break;
-
-    default:
-        if ($sn) {
-            show_photo($sn);
-            $op = 'show_photo';
-        } else {
-            $op = 'home';
-            list_classify();
-        }
-        break;
+        // default:
+        //     if ($sn) {
+        //         show_photo($sn);
+        //         $op = 'show_photo';
+        //     } else {
+        //         $op = 'home';
+        //     }
+        //     break;
 }
 
 require_once '_footer.php';
@@ -45,32 +37,15 @@ function data_insert()
     $title       = $db->real_escape_string($_POST['title']);
     $description = $db->real_escape_string($_POST['description']);
     $username    = $db->real_escape_string($_POST['username']);
+    $sort        = $db->real_escape_string($_POST['sort']);
 
-    $sql = "INSERT INTO `photo` (`title`, `description`, `username`, `create_time`, `update_time`) VALUES ('{$title}', '{$description}', '{$username}', NOW(), NOW())";
+    $sql = "INSERT INTO `classify` (`title`, `description`, `sort`) VALUES ('{$title}', '{$description}', '{$sort}')";
     $db->query($sql) or die($db->error);
     $sn = $db->insert_id;
 
     upload_pic($sn);
 
     return $sn;
-}
-
-//讀出所有分類
-function list_classify()
-{
-    global $db, $smarty;
-
-    $sql    = "SELECT * FROM `classify` ORDER BY `sort` DESC";
-    $result = $db->query($sql) or die($db->error);
-    $all    = array();
-    $i      = 0;
-    while ($data = $result->fetch_assoc()) {
-        $all[$i] = $data;
-        // $all[$i]['summary'] = mb_substr(strip_tags($data['content']), 0, 90);
-        $i++;
-    }
-    // die(var_export($all));
-    $smarty->assign('all', $all);
 }
 
 //讀出一則資料
@@ -91,7 +66,7 @@ function show_photo($sn)
     $smarty->assign('photo', $data);
 }
 
-//上傳作品照片
+//上傳分類照片
 function upload_pic($sn)
 {
 
@@ -100,20 +75,12 @@ function upload_pic($sn)
         $foo = new Upload($_FILES['uploadpic']);
         if ($foo->uploaded) {
             // save uploaded image with a new name
-            $foo->file_new_name_body = 'cover_' . $sn;
+            $foo->file_new_name_body = 'classify_' . $sn;
             $foo->image_resize       = true;
             $foo->image_convert      = jpg;
-            $foo->image_x            = 1920;
-            $foo->image_ratio_y      = true;
+            $foo->image_y            = 1080;
+            $foo->image_ratio_x      = true;
             $foo->Process('uploads/');
-            if ($foo->processed) {
-                $foo->file_new_name_body = 'thumb_' . $sn;
-                $foo->image_resize       = true;
-                $foo->image_convert      = jpg;
-                $foo->image_x            = 480;
-                $foo->image_ratio_y      = true;
-                $foo->Process('uploads/');
-            }
         }
     }
 }

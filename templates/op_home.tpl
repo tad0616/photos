@@ -12,14 +12,14 @@
 
                 <div class="swiper-wrapper">
 
-
+                    {foreach $all as $classify}
                     <div class="swiper-slide">
-                        <img src="img/background-19.jpg" alt="" class="tilt-effect" data-tilt-options='{$data_tilt_options}' />
+                        <img src="uploads/classify_{$classify.sn}.jpg" alt="" class="tilt-effect" data-tilt-options='{$data_tilt_options}' />
                         <div class="entry full-size valign-middle">
                             <div class="text-align">
                                 <div class="text">                                    
                                     <div class="align">
-                                        <div class="slide-title h3 light"><a href="#">人物</a></div>
+                                        <div class="slide-title h3 light"><a href="#">{$classify.title}</a></div>
                                         <div class="empty-space col-xs-b30"></div>
                                         <a class="button-link light" href="#">查看作品</a>
                                     </div>
@@ -27,86 +27,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <img src="img/background-20.jpg" alt="" class="tilt-effect" data-tilt-options='{$data_tilt_options}' />
-                        <div class="entry full-size valign-middle">
-                            <div class="text-align">
-                                <div class="text">
-                                    <div class="align">
-                                        <div class="slide-title h3 light">地方</div>
-                                        <div class="empty space col-xs-b15"></div>
-
-                                        <div class="empty-space col-xs-b15"></div>
-                                        <a class="button-link light" href="#">查看作品</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/background-21.jpg" alt="" class="tilt-effect" data-tilt-options='{$data_tilt_options}' />
-                        <div class="entry full-size valign-middle">
-                            <div class="text-align">
-                                <div class="text">
-                                    <div class="align">
-                                        <div class="slide-title h3 light">自然</div>
-                                        <div class="empty space col-xs-b15"></div>
-
-                                        <div class="empty-space col-xs-b15"></div>
-                                        <a class="button-link light" href="#">查看作品</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/background-19_.jpg" alt="" class="tilt-effect" data-tilt-options='{$data_tilt_options}' />
-                        <div class="entry full-size valign-middle">
-                            <div class="text-align">
-                                <div class="text">
-                                    <div class="align">
-                                        <div class="slide-title h3 light">圖片故事</div>
-                                        <div class="empty space col-xs-b15"></div>
-
-                                        <div class="empty-space col-xs-b15"></div>
-                                        <a class="button-link light" href="#">查看作品</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/background-20_.jpg" alt="" class="tilt-effect" data-tilt-options='{$data_tilt_options}' />
-                        <div class="entry full-size valign-middle">
-                            <div class="text-align">
-                                <div class="text">
-                                    <div class="align">
-                                        <div class="slide-title h3 light">青少年</div>
-                                        <div class="empty space col-xs-b15"></div>
-
-                                        <div class="empty-space col-xs-b15"></div>
-                                        <a class="button-link light" href="#">查看作品</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/background-21_.jpg" alt="" class="tilt-effect" data-tilt-options='{$data_tilt_options}' />
-                        <div class="entry full-size valign-middle">
-                            <div class="text-align">
-                                <div class="text">
-                                    <div class="align">
-                                        <div class="slide-title h3 light">手機組</div>
-                                        <div class="empty space col-xs-b15"></div>
-
-                                        <div class="empty-space col-xs-b15"></div>
-                                        <a class="button-link light" href="#">查看作品</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {/foreach}
 
 
                 </div>
