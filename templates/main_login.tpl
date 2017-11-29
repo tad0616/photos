@@ -10,23 +10,32 @@
 
         <div class="wide-container img-container">
             <div class="header-empty-space"></div>
-            <div class="empty-space col-xs-b55 col-sm-b110"></div>
-
 
             <div class="container">
-                <form class="form-signin" name="form1" method="post" action="checklogin.php">
-                    <h2 class="form-signin-heading"><b>{$page_title}</b></h2>
-                    <input name="myusername" id="myusername" type="text" class="form-control" placeholder="請輸入帳號" autofocus>
-                    <input name="mypassword" id="mypassword" type="password" class="form-control" placeholder="請輸入密碼">
-                    <!-- The checkbox remember me is not implemented yet...
-                    <label class="checkbox">
-                    <input type="checkbox" value="remember-me"> Remember me
-                    </label>
-                    -->
-                    <button name="Submit" id="submit" class="btn btn-lg btn-primary btn-block" type="submit">登入</button>
-
-                    <div id="message"></div>
-                </form>
+                <div class="col-md-8 col-md-offset-2">
+                    <form action="index.php" method="post" enctype="multipart/form-data" id="myform">
+                        <h2 class="form-signin-heading"><b>上傳作品</b></h2>
+                        <div class="form-group">
+                            <label for="title" class="col-form-label sr-only">作品標題</label>
+                            <input type="text" class="form-control validate[required]" name="title" id="title" placeholder="請輸入作品標題">
+                        </div>
+                        <div class="form-group">
+                            <label for="content" class="col-form-label sr-only">作品介紹</label>
+                            <textarea name="content" id="content" rows="12" class="form-control" placeholder="請輸入作品介紹"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="uploadpic" class="col-form-label">上傳照片</label>
+                            <input type="file" class="form-control" name="uploadpic" id="uploadpic" placeholder="請上傳一張封面圖">
+                        </div>
+                        <div class="text-center">
+                            <input type="hidden" name="op" value="insert">
+                            <!-- <input type="hidden" name="username" value="{$smarty.session.username}"> -->
+                            <button type="submit" class="btn btn-success btn-xlarge">
+                                <i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;&nbsp;確 認 上 傳
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
 
         </div><!-- end .wide-container -->

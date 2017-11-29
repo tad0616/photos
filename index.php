@@ -13,6 +13,10 @@ switch ($op) {
         $op = 'submission';
         break;
 
+    case 'upload':
+        $op = 'upload';
+        break;
+
     default:
         /*if ($sn) {
         show_article($sn);

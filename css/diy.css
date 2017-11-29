@@ -1,5 +1,5 @@
 body, h1, h2, h3, .h1, .h2, .h3 {
-  font-family: 微軟正黑體;
+  font-family: 微軟正黑體!important;
   /* font-size: 1.2rem; */
 }
 
@@ -93,6 +93,11 @@ footer * { color:#fff; text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);}
 /************* start 內文樣式 *************/
 .simple-article * {
     font-size:16px;
+}
+.btn-xlarge {
+    font-family: 微軟正黑體;
+    font-size: 24px;
+    padding: 16px 32px;
 }
 /************* end 內文樣式 ***************/
 

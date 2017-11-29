@@ -62,6 +62,27 @@
         </div>
     </div>
 
+    <div class="empty-space col-xs-b25 col-sm-b50"></div>
+
+    <div class="row col-xs-text-center col-sm-text-center">
+        <div class="col-sm-12">
+            <hr>
+            <!-- <div class="h3"><b>開始上傳</b></div> -->
+            <div class="empty-space col-xs-b15"></div>
+            <div class="banner-max-width">
+                <div class="simple-article large transparent" style="font-size:16px;">
+                    如您已明白投稿須知，接下來就請大膽地上傳自己的攝影作品吧。
+                </div>
+            </div>
+            <div class="empty-space col-xs-b15"></div>
+            <div class="empty-space col-xs-b10 col-sm-b0"></div>
+            <a href="index.php?op=upload" class="btn btn-lg btn-success btn-xlarge">
+                <i class="fa fa-camera" aria-hidden="true"></i>&nbsp;&nbsp;上 傳 作 品
+            </a>
+            
+        </div>
+    </div>
+    <div class="empty-space col-xs-b55 col-sm-b110"></div>
     <div class="empty-space col-xs-b55 col-sm-b110"></div>
 
 </div>
