@@ -10,8 +10,8 @@
                                 <input type="text" class="form-control validate[required]" name="title" id="title" placeholder="請輸入作品標題">
                             </div>
                             <div class="form-group">
-                                <label for="content" class="col-form-label sr-only">作品介紹</label>
-                                <textarea name="content" id="content" rows="12" class="form-control" placeholder="請輸入作品介紹"></textarea>
+                                <label for="description" class="col-form-label sr-only">作品介紹</label>
+                                <textarea name="description" id="description" rows="12" class="form-control" placeholder="請輸入作品介紹"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="uploadpic" class="col-form-label" style="margin-bottom:10px;">上傳照片</label>

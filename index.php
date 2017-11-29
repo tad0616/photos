@@ -13,6 +13,11 @@ switch ($op) {
         $op = 'submission';
         break;
 
+    case 'insert':
+        $sn = data_insert();
+        header("location: photo.php?sn={$sn}");
+        exit;
+
     case 'upload':
         $op = 'upload';
         break;
@@ -31,3 +36,47 @@ switch ($op) {
 require_once '_footer.php';
 
 /******************* ↓ 函式區 ↓ **********************/
+
+//新增資料
+function data_insert()
+{
+    global $db;
+    $title       = $db->real_escape_string($_POST['title']);
+    $description = $db->real_escape_string($_POST['description']);
+    $username    = $db->real_escape_string($_POST['username']);
+
+    $sql = "INSERT INTO `photo` (`title`, `description`, `username`, `create_time`, `update_time`) VALUES ('{$title}', '{$description}', '{$username}', NOW(), NOW())";
+    $db->query($sql) or die($db->error);
+    $sn = $db->insert_id;
+
+    upload_pic($sn);
+
+    return $sn;
+}
+
+//上傳團片
+function upload_pic($sn)
+{
+
+    if (isset($_FILES)) {
+        require_once 'class.upload.php';
+        $foo = new Upload($_FILES['uploadpic']);
+        if ($foo->uploaded) {
+            // save uploaded image with a new name
+            $foo->file_new_name_body = 'cover_' . $sn;
+            $foo->image_resize       = true;
+            $foo->image_convert      = jpg;
+            $foo->image_x            = 1920;
+            $foo->image_ratio_y      = true;
+            $foo->Process('uploads/');
+            if ($foo->processed) {
+                $foo->file_new_name_body = 'thumb_' . $sn;
+                $foo->image_resize       = true;
+                $foo->image_convert      = jpg;
+                $foo->image_x            = 480;
+                $foo->image_ratio_y      = true;
+                $foo->Process('uploads/');
+            }
+        }
+    }
+}
