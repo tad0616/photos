@@ -1,4 +1,5 @@
 <?php
+require 'loginheader.php';
 require_once '_header.php';
 $page_title = '分類管理';
 $op         = '';

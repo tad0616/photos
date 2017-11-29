@@ -14,6 +14,7 @@
             <div class="row">
                 <div class="container">
                     <div class="col-md-10 col-md-offset-1">
+                        {if isset($smarty.session.username) and $smarty.session.username=='admin'}
                         <form action="admin_classify.php" method="post" enctype="multipart/form-data" id="myform">
                             <h2 class="form-signin-heading"><b>新增作品分類</b></h2>
                             <hr>
@@ -41,6 +42,13 @@
                                 </button>
                             </div>
                         </form>
+                        {else}
+                            <div>
+                                <div class="alert alert-danger role="alert"">
+                                    <i class="fa fa-exclamation-triangle" aria-hidden="true" style="font-size: 20px;"></i></i>&nbsp;&nbsp;<b style="font-size: 20px;">不要鬧！</b>這是大人的地方，快點給我滾出去！！
+                                </div>
+                            </div>
+                        {/if}
                     </div>
                 </div>
             </div>
