@@ -5,7 +5,7 @@ include 'globalcon.php';
 include 'dbconf.php';
 
 //Set this for global site use
-$site_name = '巷集談-街道新聞';
+$site_name = '台南社大攝影班';
 
 //Maximum Login Attempts
 $max_attempts = 5;
@@ -18,7 +18,7 @@ $admin_email = _VERIFY_EMAIL;
 //EMAIL SETTINGS
 //SEND TEST EMAILS THROUGH FORM TO https://www.mail-tester.com GENERATED ADDRESS FOR SPAM SCORE
 $from_email = _ADM_EMAIL; //Webmaster email
-$from_name  = '管理員'; //"From name" displayed on email
+$from_name  = '攝影班管理員'; //"From name" displayed on email
 
 //Find specific server settings at https://www.arclab.com/en/kb/email/list-of-smtp-and-pop3-servers-mailserver-list.html
 $mailServerType = _USE_SMTP ? 'smtp' : '';
@@ -45,7 +45,7 @@ if (trim($admin_email, ' ') == '') {
     echo $invalid_mod;
 }
 ;
-$invalid_mod = "$adminemail 不是有效的電子郵件地址";
+$invalid_mod = "$from_email 不是有效的電子郵件地址";
 
 //Makes readable version of timeout (in minutes). Do not change.
 $timeout_minutes = round(($login_timeout / 60), 1);

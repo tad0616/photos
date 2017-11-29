@@ -33,7 +33,7 @@
 
 
 {include file="_footer.tpl"}
-<script src="js/login.js"></script>
+<script src="js/signup.js"></script>
 </body>
 
 </html>

@@ -19,6 +19,7 @@ switch ($op) {
         exit;
 
     case 'upload':
+        require "loginheader.php";
         $op = 'upload';
         list_classify();
         break;

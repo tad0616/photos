@@ -17,15 +17,16 @@ class MailSender
         // ADD sendmail_path = "env -i /usr/sbin/sendmail -t -i" to php.ini on UNIX servers
         $mail = new PHPMailer;
         $mail->isHTML(true);
-        $mail->CharSet = "text/html; charset=UTF-8;";
+        $mail->CharSet = "UTF-8";
+        //$mail->CharSet = "text/html; charset=UTF-8;";
         $mail->WordWrap = 80;
         $mail->setFrom($from_email, $from_name);
         $mail->AddReplyTo($from_email, $from_name);
         /****
-        * Set who the message is to be sent to
-        * CAN BE SET TO addAddress(youremail@website.com, 'Your Name') FOR PRIVATE USER APPROVAL BY MODERATOR
-        * SET TO addAddress($email, $user) FOR USER SELF-VERIFICATION
-        *****/
+         * Set who the message is to be sent to
+         * CAN BE SET TO addAddress(youremail@website.com, 'Your Name') FOR PRIVATE USER APPROVAL BY MODERATOR
+         * SET TO addAddress($email, $user) FOR USER SELF-VERIFICATION
+         *****/
         $mail->addAddress($email, $user);
 
         //Sets message body content based on type (verification or confirmation)
@@ -35,9 +36,9 @@ class MailSender
             $mail->Subject = $user . ' Account Verification';
 
             //Set the body of the message
-            $mail->Body = $verifymsg . '<br><a href="'.$verifyurl.'">'.$verifyurl.'</a>';
+            $mail->Body = $verifymsg . '<br><a href="' . $verifyurl . '">' . $verifyurl . '</a>';
 
-            $mail->AltBody  =  $verifymsg . $verifyurl;
+            $mail->AltBody = $verifymsg . $verifyurl;
 
         } elseif ($type == 'Active') {
 
@@ -45,8 +46,8 @@ class MailSender
             $mail->Subject = $site_name . ' Account Created!';
 
             //Set the body of the message
-            $mail->Body = $active_email . '<br><a href="'.$signin_url.'">'.$signin_url.'</a>';
-            $mail->AltBody  =  $active_email . $signin_url;
+            $mail->Body    = $active_email . '<br><a href="' . $signin_url . '">' . $signin_url . '</a>';
+            $mail->AltBody = $active_email . $signin_url;
 
         };
 
@@ -55,10 +56,10 @@ class MailSender
 
             $mail->IsSMTP(); //Enable SMTP
             $mail->SMTPAuth = true; //SMTP Authentication
-            $mail->Host = $smtp_server; //SMTP Host
+            $mail->Host     = $smtp_server; //SMTP Host
             //Defaults: Non-Encrypted = 25, SSL = 465, TLS = 587
             $mail->SMTPSecure = $smtp_security; // Sets the prefix to the server
-            $mail->Port = $smtp_port; //SMTP Port
+            $mail->Port       = $smtp_port; //SMTP Port
             //SMTP user auth
             $mail->Username = $smtp_user; //SMTP Username
             $mail->Password = $smtp_pw; //SMTP Password
@@ -73,11 +74,11 @@ class MailSender
 
         } catch (phpmailerException $e) {
 
-            echo $e->errorMessage();// Error messages from PHPMailer
+            echo $e->errorMessage(); // Error messages from PHPMailer
 
         } catch (Exception $e) {
 
-            echo $e->getMessage();// Something else
+            echo $e->getMessage(); // Something else
 
         }
     }
