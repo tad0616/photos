@@ -12,7 +12,6 @@ $db = link_db();
 
 $site_title        = '社大攝影班';
 $data_tilt_options = '{ "movement": { "perspective" : 700, "translateX" : -15, "translateY" : -15, "translateZ" : 10, "rotateX" : 2, "rotateY" : 10 } }';
-define('_DATA_TILT_OPTIONS', '');
 
 //自動抓樣板檔，把值塞給常數 _PAGE_TPL
 //在_footer.php 加入 $smarty->display(_PAGE_TPL); 即會自動載入與.php檔名相同的.tpl
