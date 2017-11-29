@@ -20,6 +20,7 @@ switch ($op) {
 
     case 'upload':
         $op = 'upload';
+        list_classify();
         break;
 
     default:
@@ -52,6 +53,24 @@ function data_insert()
     upload_pic($sn);
 
     return $sn;
+}
+
+//讀出所有分類
+function list_classify()
+{
+    global $db, $smarty;
+
+    $sql    = "SELECT * FROM `classify` ORDER BY `sn` DESC LIMIT 0,9";
+    $result = $db->query($sql) or die($db->error);
+    $all    = array();
+    $i      = 0;
+    while ($data = $result->fetch_assoc()) {
+        $all[$i] = $data;
+        // $all[$i]['summary'] = mb_substr(strip_tags($data['content']), 0, 90);
+        $i++;
+    }
+    // die(var_export($all));
+    $smarty->assign('all', $all);
 }
 
 //上傳團片

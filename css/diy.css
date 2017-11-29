@@ -75,6 +75,11 @@ footer * { color:#fff; text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);}
 .form-signup .btn {
   margin-bottom: 10px;
 }
+.form-group {
+}
+.form-group label { 
+    margin-bottom:10px;
+}
 /*************** end 登入表單 ***************/
 
 /************ start 首頁輪播樣式 ************/
