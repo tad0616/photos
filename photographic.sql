@@ -44,6 +44,10 @@ CREATE TABLE `members` (
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+TRUNCATE `members`;
+INSERT INTO `members` (`id`, `username`, `password`, `email`, `verified`, `mod_timestamp`) VALUES
+('145535a1ec1d54db0a',	'admin',	'$2y$10$EzNcbgEtr5jCgFCh71ahdeGOkkfIOt50PF/3cBjivH72yaLpxRW9G',	'edge@tetto-design.com',	1,	'2017-11-29 14:21:13'),
+('24285a1ec3a61abe9',	'edge',	'$2y$10$j9qkh69fraCm4mMkWNUsXeag1dizW0l6CF2Kx9tEKtrMW6B3HsDr2',	'iamedge@gmail.com',	1,	'2017-11-29 14:27:17');
 
 DROP TABLE IF EXISTS `photo`;
 CREATE TABLE `photo` (
@@ -59,4 +63,4 @@ CREATE TABLE `photo` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
--- 2017-11-29 13:27:19
+-- 2017-11-29 14:53:42
