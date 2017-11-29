@@ -2,7 +2,6 @@
 if (isset($op)) {
     $smarty->assign('op', $op);
 }
-$smarty->assign('site_title', $site_title);
 $smarty->assign('page_title', $page_title);
 $smarty->assign('data_tilt_options', $data_tilt_options);
 

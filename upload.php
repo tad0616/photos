@@ -2,15 +2,12 @@
 require_once '_header.php';
 $page_title = '首頁';
 
-// die(var_dump($_SESSION));/*檢查有沒有session*/
-
-$op = isset($_REQUEST['op']) ? filter_var($_REQUEST['op']) : '';
-$sn = isset($_REQUEST['sn']) ? (int) $_REQUEST['sn'] : 0;
+$op = isset($_POST['op']) ? filter_var($_POST['op']) : '';
 
 /***************** ↓ 流程控制區 ↓ ********************/
 switch ($op) {
-    case 'submission':
-        $op = 'submission';
+    case 'information':
+        $op = 'information';
         break;
 
     default:

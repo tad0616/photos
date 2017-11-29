@@ -24,4 +24,4 @@
     <!--[if IE 9]>
         <link href="css/ie9.css" rel="stylesheet" type="text/css" />
     <![endif]-->
-    <title>{$site_title}</title>
+    <title>{_SITE_TITLE}</title>

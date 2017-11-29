@@ -6,7 +6,7 @@
                 <div class="copyright">
                     <div class="simple-article small light transparent">
                         <!-- &copy; 2016 All rights reserved. -->
-                        <div class="developed-by">&copy; 2017 {$site_title}</div>
+                        <div class="developed-by">&copy; 2017 {_SITE_TITLE}</div>
                     </div>
                 </div>
                 <div class="empty-space col-xs-b20 col-md-b0"></div>

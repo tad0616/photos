@@ -1,4 +1,4 @@
-body, h1, h2, h3 {
+body, h1, h2, h3, .h1, .h2, .h3 {
   font-family: 微軟正黑體;
   /* font-size: 1.2rem; */
 }
@@ -14,6 +14,8 @@ img.cover {
   object-fit: cover;
   background-color: #000;
 }
+
+footer * { color:#fff; text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);}
 
 /************** start 登入表單 **************/
 .form-signin,
@@ -89,5 +91,8 @@ img.cover {
 /************ end 首頁輪播樣式 ************/
 
 /************* start 內文樣式 *************/
+.simple-article * {
+    font-size:16px;
+}
 /************* end 內文樣式 ***************/
 
