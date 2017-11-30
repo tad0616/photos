@@ -38,6 +38,11 @@ switch ($op) {
         header("location: index.php?sn={$sn}");
         exit;
 
+    case 'upload_delete':
+        upload_delete($sn);
+        header("location: index.php");
+        exit;
+
     case 'upload': //上傳照片的表單
         require "loginheader.php";
         $op = 'upload';
@@ -91,6 +96,19 @@ function upload_modify($sn)
     $db->query($sql) or die($db->error);
 
     return $sn;
+}
+
+function upload_delete($sn)
+{
+    global $db;
+
+    $sql = "DELETE FROM `photo` WHERE sn='{$sn}' and username='{$_SESSION['username']}'";
+    $db->query($sql) or die($db->error);
+
+    if (file_exists("uploads/cover_{$sn}.jpg")) {
+        unlink("uploads/cover_{$sn}.jpg");
+        unlink("uploads/thumb_{$sn}.jpg");
+    }
 }
 
 //讀出所有分類

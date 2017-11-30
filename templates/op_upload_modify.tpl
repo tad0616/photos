@@ -30,7 +30,7 @@
                         <button type="submit" class="btn btn-lg btn-success">
                             <i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;&nbsp;確 認 修 改
                         </button>&nbsp;&nbsp;
-                        <a href="" class="btn btn-lg btn-danger">
+                        <a href="index.php?op=upload_delete&sn={$photo.sn}" class="btn btn-lg btn-danger">
                             <i class="fa fa-trash" aria-hidden="true"></i>&nbsp;&nbsp;刪除
                         </a>
                     </div>
