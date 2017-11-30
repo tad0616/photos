@@ -50,7 +50,7 @@
 
                 </script>
                 <script async src="https://static.addtoany.com/menu/page.js"></script>
-<!-- AddToAny END -->
+                <!-- AddToAny END -->
             </div>
             <div class="empty-space col-xs-b20 col-sm-b0"></div>
         </div>
@@ -72,14 +72,14 @@
             <div class="h5"><b>- 作品說明 -</b></div>
             <div class="empty-space col-xs-b30"></div>
             <div class="simple-article large grey text-left">
-                {$photo.description}
+                {$photo.description_n2br}
             </div>
         </div>
         <div class="col-md-4 col-md-offset-1 text-center">
             <div class="h5"><b>- EXIF資訊 -</b></div>
             <div class="empty-space col-xs-b30"></div>
             <div class="simple-article large grey text-left">
-                
+                 &nbsp;
             </div>
         </div>
     </div>

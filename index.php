@@ -18,16 +18,22 @@ switch ($op) {
         header("location: index.php?sn={$sn}");
         exit;
 
-    case 'upload':
+    case 'list_photo':
+        show_classify($sn);
+        $sn = list_photo($sn);
+        break;
+
+    case 'upload': //上傳照片的表單
         require "loginheader.php";
         $op = 'upload';
-        list_classify();
+        list_classify(); //列出下拉選單show分類
         break;
 
     default:
         if ($sn) {
             show_photo($sn);
             $op = 'show_photo';
+
         } else {
             $op = 'home';
             list_classify();
@@ -74,7 +80,37 @@ function list_classify()
     $smarty->assign('all', $all);
 }
 
-//讀出一則資料
+//讀出某則分類裡的所有照片
+function list_photo($sn)
+{
+    global $db, $smarty;
+
+    $sql    = "SELECT * FROM `photo` WHERE `classify_sn`='$sn' ORDER BY `create_time` DESC limit 0,9";
+    $result = $db->query($sql) or die($db->error);
+    $all    = array();
+    $i      = 0;
+    while ($data = $result->fetch_assoc()) {
+        $all[$i] = $data;
+        // $all[$i]['summary'] = mb_substr(strip_tags($data['content']), 0, 90);
+        $i++;
+    }
+    // die(var_export($all));
+    $smarty->assign('all', $all);
+}
+
+//讀出一則分類資料
+function show_classify($sn)
+{
+    global $db, $smarty;
+
+    $sql             = "SELECT * FROM `classify` WHERE `sn`='$sn'";
+    $result          = $db->query($sql) or die($db->error);
+    $data            = $result->fetch_assoc();
+    $data['summary'] = mb_substr(strip_tags($data['description']), 0, 30);
+    $smarty->assign('classify', $data);
+}
+
+//讀出一則照片資料
 function show_photo($sn)
 {
     global $db, $smarty;
@@ -87,8 +123,9 @@ function show_photo($sn)
     $result = $db->query($sql) or die($db->error);
     $data   = $result->fetch_assoc();
     // $data['content'] = $purifier->purify($data['content']);
-    $data['summary']      = mb_substr(strip_tags($data['description']), 0, 90);
-    $data['display_time'] = date("d M Y", strtotime($data['update_time']));
+    $data['description_n2br'] = str_replace("\n", '<br />', $data['description']);
+    $data['summary']          = mb_substr(strip_tags($data['description']), 0, 90);
+    $data['display_time']     = date("d M Y", strtotime($data['update_time']));
     $smarty->assign('photo', $data);
 }
 
@@ -117,4 +154,10 @@ function upload_pic($sn)
             }
         }
     }
+}
+
+//取得JPG檔EXIF資訊
+function exif_display($sn)
+{
+    $exif = exif_read_data("'uploads/cover_'.$sn'.jpg'", 0, true);
 }

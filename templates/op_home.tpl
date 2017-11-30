@@ -18,7 +18,7 @@
                             <div class="text-align">
                                 <div class="text">                                    
                                     <div class="align">
-                                        <div class="slide-title h3 light"><a href="#">{$classify.title}</a></div>
+                                        <div class="slide-title h3 light"><a href="index.php?op=list_photo&sn={{$classify.sn}}">{$classify.title}</a></div>
                                             <div class="empty space col-xs-b15"></div>
                                             <div class="slide-description simple-article large light transparent">{$classify.description}</div>
                                         <div class="empty-space col-xs-b30"></div>
