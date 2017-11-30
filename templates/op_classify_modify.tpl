@@ -30,13 +30,13 @@
                             </div>
                             <div class="text-center">
                                 <input type="hidden" name="op" value="modify">
-                                <button type="submit" class="btn btn-success btn-xlarge">
+                                <button type="submit" class="btn btn-success btn-lg">
                                     <i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;&nbsp;確 認 修 改
                                 </button>
                                  &nbsp;&nbsp;&nbsp;&nbsp;
-                                <button type="submit" class="btn btn-danger btn-xlarge">
+                                <a href="admin_classify.php?op=delete&sn={$classify.sn}" class="btn btn-danger btn-lg">
                                     <i class="fa fa-trash" aria-hidden="true"></i>&nbsp;&nbsp;刪 除
-                                </button>
+                                </a>
                             </div>
                         </form>
                         {else}

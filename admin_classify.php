@@ -22,6 +22,11 @@ switch ($op) {
         header("location: index.php");
         exit;
 
+    case 'delete':
+        data_delete($sn);
+        header("location: index.php");
+        exit;
+
     default:
         if ($sn) {
             $op = 'classify_modify';
@@ -70,6 +75,17 @@ function data_modify($sn)
     return $sn;
 }
 
+function data_delete($sn)
+{
+    global $db;
+
+    $sql = "DELETE FROM `classify` WHERE sn='{$sn}' and '{$_SESSION['username']}'='admin'";
+    $db->query($sql) or die($db->error);
+
+    if (file_exists("uploads/classify_{$sn}.jpg")) {
+        unlink("uploads/classify_{$sn}.jpg");
+    }
+}
 //讀出一則分類資料
 function show_classify($sn)
 {
