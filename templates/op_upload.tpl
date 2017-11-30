@@ -9,12 +9,12 @@
                     <hr>
                     <div class="form-group">
                         <label for="classify">選擇作品分類：</label>
-                        <select class="form-control" name="classify" id="classify">
-                                    <option disabled="disabled" selected="true">--請選擇--</option>
-                                    {foreach $all as $classify}
-                                    <option value="{$classify.sn}">{$classify.title}</option>
-                                    {/foreach}
-                                </select>
+                        <select class="form-control" name="classify_sn" id="classify">
+                            <option disabled="disabled" selected="true">--請選擇--</option>
+                            {foreach $all as $classify}
+                            <option value="{$classify.sn}">{$classify.title}</option>
+                            {/foreach}
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="title" class="col-form-label">作品標題</label>

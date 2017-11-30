@@ -27,7 +27,7 @@
         </div>
         <div class="col-sm-7">
             <div class="simple-article grey text-left">
-                <p>欲使用本站投稿功能，需先成為網站會員，若您還不是網站會員，請<a href="signup.php">按此申請</a>，申請會員需經過攝影班老師驗證申請人確實是攝影班學員，方能成為本站會員</p>
+                <p>欲使用本站投稿功能，需先成為網站會員，若您還不是網站會員，請 <a href="signup.php" style="color:#ff0000">按此申請</a>，申請會員需經過攝影班老師驗證申請人確實是攝影班學員，方能成為本站會員</p>
             </div>
         </div>
     </div>
@@ -50,14 +50,12 @@
 
     <div class="row col-xs-text-center col-sm-text-right">
         <div class="col-sm-3 col-sm-offset-1">
-            <div class="h3"><b>還沒想到</b></div>
+            <div class="h3"><b>其它</b></div>
             <div class="empty-space col-xs-b10 col-sm-b0"></div>
         </div>
         <div class="col-sm-7">
             <div class="simple-article grey text-left">
-                <p>Phasellus vel cursus neque. In consectetur arcu vitae tellus posuere semper. Sed congue scelerisque est,
-                    a varius nunc aliquam sit amet. Sed in vehicula sapien. Maecenas faucibus pharetra consequat. Donec orci
-                    libero, molestie et dapibus vel, tristique eget arcu. Quisque ac ornare dolor. Integer eleifend mauris</p>
+                <p>照片上傳後便無法再重新上傳，但是學員可以隨時修改照片的文字敘述。</p>
             </div>
         </div>
     </div>

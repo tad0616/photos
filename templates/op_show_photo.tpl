@@ -17,7 +17,7 @@
         <div class="col-sm-3 text-center">
             <div class="h5"><b>作品分類：</b></div>
             <div class="empty-space col-xs-b5"></div>
-            <div class="simple-article large grey">{$photo.classify_sn}</div>
+            <div class="simple-article large grey"><a href="index.php?op=list_photo&sn={$photo.classify_sn}">{$photo.classify_sn}</a></div>
             <div class="empty-space col-xs-b20 col-sm-b0"></div>
         </div>
         <div class="col-sm-3 text-center">

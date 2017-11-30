@@ -48,11 +48,12 @@ require_once '_footer.php';
 function data_insert()
 {
     global $db;
-    $title = $db->real_escape_string($_POST['title']);
+    $title       = $db->real_escape_string($_POST['title']);
     $description = $db->real_escape_string($_POST['description']);
-    $username = $db->real_escape_string($_POST['username']);
+    $username    = $db->real_escape_string($_POST['username']);
+    $classify_sn = $db->real_escape_string($_POST['classify_sn']);
 
-    $sql = "INSERT INTO `photo` (`title`, `description`, `username`, `create_time`, `update_time`) VALUES ('{$title}', '{$description}', '{$username}', NOW(), NOW())";
+    $sql = "INSERT INTO `photo` (`title`, `description`, `username`, `classify_sn`, `create_time`, `update_time`) VALUES ('{$title}', '{$description}', '{$username}', '{$classify_sn}', NOW(), NOW())";
     $db->query($sql) or die($db->error);
     $sn = $db->insert_id;
 
@@ -66,10 +67,10 @@ function list_classify()
 {
     global $db, $smarty;
 
-    $sql = "SELECT * FROM `classify` ORDER BY `sort` DESC";
+    $sql    = "SELECT * FROM `classify` ORDER BY `sort` DESC";
     $result = $db->query($sql) or die($db->error);
-    $all = array();
-    $i = 0;
+    $all    = array();
+    $i      = 0;
     while ($data = $result->fetch_assoc()) {
         $all[$i] = $data;
         // $all[$i]['summary'] = mb_substr(strip_tags($data['content']), 0, 90);
@@ -118,9 +119,9 @@ function show_photo($sn)
     // $config   = HTMLPurifier_Config::createDefault();
     // $purifier = new HTMLPurifier($config);
 
-    $sql = "SELECT * FROM `photo` WHERE `sn`='$sn'";
+    $sql    = "SELECT * FROM `photo` WHERE `sn`='$sn'";
     $result = $db->query($sql) or die($db->error);
-    $data = $result->fetch_assoc();
+    $data   = $result->fetch_assoc();
     // $data['content'] = $purifier->purify($data['content']);
     $data['description_n2br'] = str_replace("\n", '<br />', $data['description']);
     $data['summary']          = mb_substr(strip_tags($data['description']), 0, 90);
@@ -138,17 +139,17 @@ function upload_pic($sn)
         if ($foo->uploaded) {
             // save uploaded image with a new name
             $foo->file_new_name_body = 'cover_' . $sn;
-            $foo->image_resize = true;
-            $foo->image_convert = jpg;
-            $foo->image_x = 1920;
-            $foo->image_ratio_y = true;
+            $foo->image_resize       = true;
+            $foo->image_convert      = jpg;
+            $foo->image_x            = 1920;
+            $foo->image_ratio_y      = true;
             $foo->Process('uploads/');
             if ($foo->processed) {
                 $foo->file_new_name_body = 'thumb_' . $sn;
-                $foo->image_resize = true;
-                $foo->image_convert = jpg;
-                $foo->image_x = 480;
-                $foo->image_ratio_y = true;
+                $foo->image_resize       = true;
+                $foo->image_convert      = jpg;
+                $foo->image_x            = 480;
+                $foo->image_ratio_y      = true;
                 $foo->Process('uploads/');
             }
         }
