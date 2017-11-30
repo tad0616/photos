@@ -41,7 +41,7 @@
                         <div class="text-content">
                             <div class="row">
                                 <div class="col-md-6 col-xs-text-center col-md-text-left">
-                                    <div class="h5"><b><a href="index.php?sn={$photo.sn}" class="mouseover-simple size-1">{$photo.title}</a></b></div>
+                                    <div class="h5"><b><a href="index.php?sn={$photo.sn}" class="size-1">{$photo.title}</a></b></div>
                                 </div>
                                 <div class="col-md-6 col-xs-text-center col-md-text-right">
                                     <div class="simple-article grey small">{$photo.username}</div>

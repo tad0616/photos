@@ -10,7 +10,6 @@
 
         <div class="wide-container img-container">
             <div class="header-empty-space"></div>
-            <div class="empty-space col-xs-b55 col-sm-b110"></div>
 
 
             <div class="container">
@@ -25,8 +24,11 @@
                     -->
                     <button name="Submit" id="submit" class="btn btn-lg btn-primary btn-block" type="submit">登入</button>
 
+                    <div style="margin:20px auto;text-align:right;">還不是會員？<a href="signup.php" style="font-size:15px;text-decoration:underline;">按此申請</a></div>
+
                     <div id="message"></div>
                 </form>
+        <div class="empty-space col-xs-b55 col-sm-b110"></div>
             </div>
 
         </div><!-- end .wide-container -->
