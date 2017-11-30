@@ -18,11 +18,16 @@
                             <div class="text-align">
                                 <div class="text">                                    
                                     <div class="align">
-                                        <div class="slide-title h3 light"><a href="index.php?op=list_photo&sn={{$classify.sn}}">{$classify.title}</a></div>
+                                        <div class="slide-title h3 light"><a href="index.php?op=list_photo&sn={$classify.sn}">{$classify.title}</a></div>
                                             <div class="empty space col-xs-b15"></div>
                                             <div class="slide-description simple-article large light transparent">{$classify.description}</div>
                                         <div class="empty-space col-xs-b30"></div>
-                                        <a class="button-link light" href="#">查看作品</a>
+                                        <a class="button-link light" href="index.php?op=list_photo&sn={$classify.sn}">作品列表</a>  
+                        
+                                        {if isset($smarty.session.username) and $smarty.session.username=='admin'}
+                                        <p><br><br>
+                                        <a class="button-link light btn btn-warning" href="admin_classify.php?op=classify_modify&sn={$classify.sn}">修改分類</a></p>
+                                        {/if}                                      
                                     </div>
                                 </div>
                             </div>

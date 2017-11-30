@@ -7,7 +7,7 @@
         <nav class="text-left clearfix">
             <ul>
                 <li>
-                    <a href="admin_classify.php">管理分類</a>
+                    <a href="admin_classify.php?op=classify_insert">新增作品分類</a>
                 </li>
                 <li>
                     <a href="logout.php">登出</a>

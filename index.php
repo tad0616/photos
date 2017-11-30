@@ -20,7 +20,7 @@ switch ($op) {
 
     case 'list_photo':
         show_classify($sn);
-        $sn = list_photo($sn);
+        list_photo($sn);
         break;
 
     case 'upload': //上傳照片的表單

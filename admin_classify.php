@@ -17,14 +17,19 @@ switch ($op) {
         header("location: index.php");
         exit;
 
-        // default:
-        //     if ($sn) {
-        //         show_photo($sn);
-        //         $op = 'show_photo';
-        //     } else {
-        //         $op = 'home';
-        //     }
-        //     break;
+    case 'modify':
+        data_modify($sn);
+        header("location: index.php");
+        exit;
+
+    default:
+        if ($sn) {
+            $op = 'classify_modify';
+            show_classify($sn);
+        } /*else {
+        $op = 'home';
+        }*/
+        break;
 }
 
 require_once '_footer.php';
@@ -49,27 +54,40 @@ function data_insert()
     return $sn;
 }
 
-//讀出一則資料
-function show_photo($sn)
+//修改資料
+function data_modify($sn)
+{
+    global $db;
+    $title       = $db->real_escape_string($_REQUEST['title']);
+    $sort        = $db->real_escape_string($_REQUEST['sort']);
+    $description = $db->real_escape_string($_REQUEST['description']);
+
+    $sql = "UPDATE `classify` SET `title`='{$title}', `description`='{$description}', `sort`= '{$sort}' WHERE `sn`='{$sn}'";
+    $db->query($sql) or die($db->error);
+
+    upload_pic($sn);
+
+    return $sn;
+}
+
+//讀出一則分類資料
+function show_classify($sn)
 {
     global $db, $smarty;
 
-    // require_once 'HTMLPurifier/HTMLPurifier.auto.php';
-    // $config   = HTMLPurifier_Config::createDefault();
-    // $purifier = new HTMLPurifier($config);
-
-    $sql    = "SELECT * FROM `photo` WHERE `sn`='$sn'";
-    $result = $db->query($sql) or die($db->error);
-    $data   = $result->fetch_assoc();
-    // $data['content'] = $purifier->purify($data['content']);
-    $data['summary']      = mb_substr(strip_tags($data['description']), 0, 90);
-    $data['display_time'] = date("d M Y", strtotime($data['update_time']));
-    $smarty->assign('photo', $data);
+    $sql             = "SELECT * FROM `classify` WHERE `sn`='$sn'";
+    $result          = $db->query($sql) or die($db->error);
+    $data            = $result->fetch_assoc();
+    $data['summary'] = mb_substr(strip_tags($data['description']), 0, 30);
+    $smarty->assign('classify', $data);
 }
 
 //上傳分類照片
 function upload_pic($sn)
 {
+    if (file_exists("uploads/classify_{$sn}.jpg")) {
+        unlink("uploads/classify_{$sn}.jpg");
+    }
 
     if (isset($_FILES)) {
         require_once 'class.upload.php';
