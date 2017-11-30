@@ -1,4 +1,4 @@
-cache/
-templates_c/
-uploads/
+cache/*
+templates_c/*
+uploads/*
 _setup.php
