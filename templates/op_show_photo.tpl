@@ -85,6 +85,20 @@
     </div>
     <div class="empty-space col-xs-b60"></div>
 </div>
+{if isset($smarty.session.username) and $smarty.session.username=={$photo.username}}
+<div class="container">
+    <div class="empty-space col-xs-b35"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-info text-right" roll="alert">
+                <a href="index.php?op=upload_modify&sn={$photo.sn}" class="btn btn-lg btn-success"><i class="fa fa-pencil"></i>&nbsp;編輯</a>&nbsp;&nbsp;
+                <a href="" class="btn btn-lg btn-danger"><i class="fa fa-trash"></i>&nbsp;刪除</a>
+            </div>
+        </div>
+    </div>
+    <div class="empty-space col-xs-b60"></div>
+</div>
+{/if}
 
 
 <div class="empty-space col-sm-b50"></div>

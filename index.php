@@ -28,6 +28,16 @@ switch ($op) {
         list_allphoto();
         break;
 
+    case 'upload_modify': //修改的表單
+        list_classify();
+        show_photo($sn);
+        break;
+
+    case 'modify': //執行修改動作
+        upload_modify($sn);
+        header("location: index.php?sn={$sn}");
+        exit;
+
     case 'upload': //上傳照片的表單
         require "loginheader.php";
         $op = 'upload';
@@ -64,6 +74,21 @@ function data_insert()
     $sn = $db->insert_id;
 
     upload_pic($sn);
+
+    return $sn;
+}
+
+//修改資料
+function upload_modify($sn)
+{
+    global $db;
+    $title       = $db->real_escape_string($_POST['title']);
+    $description = $db->real_escape_string($_POST['description']);
+    $username    = $db->real_escape_string($_POST['username']);
+    $classify_sn = $db->real_escape_string($_POST['classify_sn']);
+
+    $sql = "UPDATE `photo` SET `title`='{$title}', `description`='{$description}', `classify_sn`= '{$classify_sn}', `update_time`= NOW() WHERE `sn`='{$sn}'";
+    $db->query($sql) or die($db->error);
 
     return $sn;
 }
