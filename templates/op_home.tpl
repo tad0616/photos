@@ -11,7 +11,7 @@
 
                 <div class="swiper-wrapper">
 
-                    {foreach $all as $classify}
+                    {foreach $list_classify as $classify}
                     <div class="swiper-slide">
                         <img src="uploads/classify_{$classify.sn}.jpg" alt="" class="tilt-effect" data-tilt-options='{$data_tilt_options}' />
                         <div class="entry full-size valign-middle">

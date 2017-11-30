@@ -19,7 +19,13 @@ switch ($op) {
 
     case 'list_photo':
         show_classify($sn);
+        list_classify();
         list_photo($sn);
+        break;
+
+    case 'list_allphoto':
+        list_classify();
+        list_allphoto();
         break;
 
     case 'upload': //上傳照片的表單
@@ -77,7 +83,25 @@ function list_classify()
         $i++;
     }
     // die(var_export($all));
-    $smarty->assign('all', $all);
+    $smarty->assign('list_classify', $all);
+}
+
+//讀出所有照片
+function list_allphoto()
+{
+    global $db, $smarty;
+
+    $sql    = "SELECT * FROM `photo` ORDER BY `create_time` DESC limit 0,9";
+    $result = $db->query($sql) or die($db->error);
+    $all    = array();
+    $i      = 0;
+    while ($data = $result->fetch_assoc()) {
+        $all[$i] = $data;
+        // $all[$i]['summary'] = mb_substr(strip_tags($data['content']), 0, 90);
+        $i++;
+    }
+    // die(var_export($all));
+    $smarty->assign('list_allphoto', $all);
 }
 
 //讀出某則分類裡的所有照片
@@ -107,7 +131,7 @@ function show_classify($sn)
     $result          = $db->query($sql) or die($db->error);
     $data            = $result->fetch_assoc();
     $data['summary'] = mb_substr(strip_tags($data['description']), 0, 30);
-    $smarty->assign('classify', $data);
+    $smarty->assign('item_classify', $data);
 }
 
 //讀出一則照片資料

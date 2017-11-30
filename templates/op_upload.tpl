@@ -1,4 +1,4 @@
-<div class="wide-container img-container">
+<div class="wide-container">
     <div class="header-empty-space"></div>
 
     <div class="row">
@@ -11,7 +11,7 @@
                         <label for="classify">選擇作品分類：</label>
                         <select class="form-control" name="classify_sn" id="classify">
                             <option disabled="disabled" selected="true">--請選擇--</option>
-                            {foreach $all as $classify}
+                            {foreach $list_classify as $classify}
                             <option value="{$classify.sn}">{$classify.title}</option>
                             {/foreach}
                         </select>
@@ -37,6 +37,7 @@
                                 </button>
                     </div>
                 </form>
+                <div class="empty-space col-xs-b55 col-sm-b110"></div>
             </div>
         </div>
     </div>
