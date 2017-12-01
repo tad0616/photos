@@ -1,13 +1,13 @@
 -- Adminer 4.2.5 MySQL dump
 
-SET NAMES utf8;
-SET time_zone = '+00:00';
-SET foreign_key_checks = 0;
-SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+-- SET NAMES utf8;
+-- SET time_zone = '+00:00';
+-- SET foreign_key_checks = 0;
+-- SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
-DROP DATABASE IF EXISTS `photographic`;
-CREATE DATABASE `photographic` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `photographic`;
+-- DROP DATABASE IF EXISTS `photographic`;
+-- CREATE DATABASE `photographic` /*!40100 DEFAULT CHARACTER SET utf8 */;
+-- USE `photographic`;
 
 DROP TABLE IF EXISTS `classify`;
 CREATE TABLE `classify` (
