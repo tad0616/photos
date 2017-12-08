@@ -75,6 +75,7 @@ function data_modify($sn)
     return $sn;
 }
 
+//刪除分類
 function data_delete($sn)
 {
     global $db;
@@ -86,6 +87,7 @@ function data_delete($sn)
         unlink("uploads/classify_{$sn}.jpg");
     }
 }
+
 //讀出一則分類資料
 function show_classify($sn)
 {
@@ -101,9 +103,6 @@ function show_classify($sn)
 //上傳分類照片
 function upload_pic($sn)
 {
-    if (file_exists("uploads/classify_{$sn}.jpg")) {
-        unlink("uploads/classify_{$sn}.jpg");
-    }
 
     if (isset($_FILES)) {
         require_once 'class.upload.php';
@@ -115,6 +114,7 @@ function upload_pic($sn)
             $foo->image_convert      = jpg;
             $foo->image_y            = 1080;
             $foo->image_ratio_x      = true;
+            $foo->file_overwrite = true;
             $foo->Process('uploads/');
         }
     }

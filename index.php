@@ -98,6 +98,7 @@ function upload_modify($sn)
     return $sn;
 }
 
+//刪除資料
 function upload_delete($sn)
 {
     global $db;
