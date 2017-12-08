@@ -2,7 +2,7 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-error_reporting(0);
+error_reporting(E_ALL);
 
 
 require_once '_setup.php';

@@ -3,12 +3,14 @@ require_once '_header.php';
 $page_title = '首頁';
 // die(var_dump($_SESSION));/*檢查有沒有session*/
 
+
 $op = isset($_REQUEST['op']) ? filter_var($_REQUEST['op']) : '';
 $sn = isset($_REQUEST['sn']) ? (int) $_REQUEST['sn'] : 0;
 
 /***************** ↓ 流程控制區 ↓ ********************/
 switch ($op) {
     case 'submission':
+        getWeekTime();
         $op = 'submission';
         break;
 
@@ -45,7 +47,7 @@ switch ($op) {
 
     case 'upload': //上傳照片的表單
         require "loginheader.php";
-        $op = 'upload';
+        $op = 'upload';        
         list_classify(); //列出下拉選單show分類
         break;
 
@@ -253,4 +255,20 @@ function upload_pic($sn)
 function exif_display($sn)
 {
     $exif = exif_read_data("'uploads/cover_'.$sn'.jpg'", 0, true);
+}
+
+
+//捉出當週　周一和週日的日期
+function getWeekTime()
+{
+    global $smarty;
+    
+    $w             = date('w');//星期五
+    $date          = [];
+    $date['begin'] = date('Y-m-d 00:00:00', time() - ($w - 1) * 86400);//2017-12-8 00:00, 10:48 - (5-1) * 86400
+    $date['end']   = date('Y-m-d 23:59:59', time() + (7 - $w) * 86400);//2017-12-8 23:59, 10:48 + (7-5) * 86400
+    //return $date;
+
+    $smarty->assign('date', $date);
+
 }

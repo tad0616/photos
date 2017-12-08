@@ -1,3 +1,4 @@
+
 <div class="fixed-background" style="background-image: url(images/pic1.jpg);">
     <div class="page-height">
         <div class="full-size-banner-entry full-size valign-middle">
@@ -20,6 +21,8 @@
 <div class="container">
     <div class="empty-space col-xs-b55 col-sm-b110"></div>
 
+    {$date.begin}<br>
+    {$date.end}
     <div class="row col-xs-text-center col-sm-text-right">
         <div class="col-sm-3 col-sm-offset-1">
             <div class="h3"><b>成為會員</b></div>
