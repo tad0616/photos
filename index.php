@@ -206,6 +206,20 @@ function show_photo($sn)
     $data['summary']          = mb_substr(strip_tags($data['description']), 0, 90);
     $data['display_time']     = date("d M Y", strtotime($data['update_time']));
     $smarty->assign('photo', $data);
+
+    //上一筆
+    $sql = "SELECT * FROM `photo` WHERE `sn` > '{$data['sn']}' ORDER BY `sn` LIMIT 0,1";
+    $result = $db->query($sql) or die($db->error);
+    $previous = $result->fetch_assoc();
+    $previous['title'] = mb_substr($previous['title'], 0, 16) . '...';
+    $smarty->assign('prev', $previous);
+
+    //下一筆
+    $sql = "SELECT * FROM `photo` WHERE `sn` < '{$data['sn']}' ORDER BY `sn` DESC LIMIT 0,1";
+    $result = $db->query($sql) or die($db->error);
+    $next = $result->fetch_assoc();
+    $next['title'] = mb_substr($next['title'], 0, 16) . '...';
+    $smarty->assign('next', $next);    
 }
 
 //上傳作品照片

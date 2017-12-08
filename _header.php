@@ -2,6 +2,8 @@
 if (!isset($_SESSION)) {
     session_start();
 }
+error_reporting(0);
+
 
 require_once '_setup.php';
 require_once '_function.php';

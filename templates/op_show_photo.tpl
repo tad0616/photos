@@ -103,21 +103,28 @@
 
 <div class="empty-space col-sm-b50"></div>
 
+{if isset($prev.sn) or isset($next.sn)}
 <div class="row nopadding">
     <div class="col-xs-4">
-        <a class="portfolio-detail-related-entry" href="#">
-            <span class="background full-size" style="background-image: url(img/portfolio-36.jpg);"></span>
+        {if $prev.sn}
+        <a class="portfolio-detail-related-entry" href="index.php?sn={$prev.sn}">
+            <span class="background full-size" style="background-image: url(uploads/thumb_{$prev.sn}.jpg);"></span>
             <span class="text hidden-xs">
-                <span class="wide-container align-left">
-                    <span class="tag"><span class="inline-indent"></span>photoshooting</span>
-                    <span class="h4 light"><b>LADY WHO WAITING</b></span>
+                <span class="wide-container align-left" style="background:none;">
+                    <span class="tag"><span class="inline-indent"></span>{$prev.classify_sn}</span>
+                    <span class="h4 light"><b>{$prev.title}</b></span>
                 </span>
             </span>
         </a>
+        {else}
+        <a class="portfolio-detail-related-entry" href="javascript:;">
+            <span class="background full-size" style="background-image: url(http://fakeimg.pl/640x640/aaaaaa/EAE0D0/?text=noitem);"></span>
+        </a>
+        {/if}
     </div>
     <div class="col-xs-4">
         <div class="portfolio-detail-related-entry">
-            <!-- <a class="square-hamburger-icon" href="#">
+            <a class="square-hamburger-icon" href="index.php?op=list_allphoto" title="返回列表">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -127,22 +134,29 @@
                 <span></span>
                 <span></span>
                 <span></span>
-            </a> -->
+            </a>
         </div>
     </div>
-    <div class="col-xs-4">
-        <a class="portfolio-detail-related-entry" href="#">
-            <span class="background full-size" style="background-image: url(img/portfolio-37.jpg);"></span>
+    <div class="col-xs-4">        
+        {if $next.sn}
+        <a class="portfolio-detail-related-entry" href="index.php?sn={$next.sn}">
+            <span class="background full-size" style="background-image: url(uploads/thumb_{$next.sn}.jpg););"></span>
             <span class="text hidden-xs">
-                <span class="wide-container align-right">
-                            <span class="tag"><span class="inline-indent"></span>photoshooting</span>
-                            <span class="h4 light"><b>LADY IN BLACK</b></span>
-                        </span>
-                    </span>
-                </a>
-            </div>
-        </div>
-    <style>
+                <span class="wide-container align-right" style="background:none;">
+                    <span class="tag"><span class="inline-indent"></span>{$next.classify_sn}</span>
+                    <span class="h4 light"><b>{$next.title}</b></span>
+                </span>
+            </span>
+        </a>
+        {else}
+        <a class="portfolio-detail-related-entry" href="javascript:;">
+            <span class="background full-size" style="background-image: url(http://fakeimg.pl/640x640/aaaaaa/EAE0D0/?text=noitem);"></span>
+        </a>
+        {/if}
+    </div>
+</div>
+{/if}
+<style>
         footer {
             display: none;
         }
