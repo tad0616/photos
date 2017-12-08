@@ -135,7 +135,12 @@ function list_allphoto()
 {
     global $db, $smarty;
 
-    $sql    = "SELECT * FROM `photo` ORDER BY `create_time` DESC limit 0,9";
+    $sql    = "SELECT * FROM `photo` ORDER BY `create_time` DESC";
+    include_once "PageBar.php";
+    $PageBar = getPageBar($db, $sql, 9, 10);
+    $bar = $PageBar['bar'];
+    $sql = $PageBar['sql'];
+    $total = $PageBar['total'];
     $result = $db->query($sql) or die($db->error);
     $all    = array();
     $i      = 0;
@@ -146,6 +151,7 @@ function list_allphoto()
     }
     // die(var_export($all));
     $smarty->assign('list_allphoto', $all);
+    $smarty->assign('bar', $bar);
 }
 
 //讀出某則分類裡的所有照片
@@ -153,7 +159,11 @@ function list_photo($sn)
 {
     global $db, $smarty;
 
-    $sql    = "SELECT * FROM `photo` WHERE `classify_sn`='$sn' ORDER BY `create_time` DESC limit 0,9";
+    $sql    = "SELECT * FROM `photo` WHERE `classify_sn`='$sn' ORDER BY `create_time` DESC";
+    include_once "PageBar.php";
+    $PageBar = getPageBar($db, $sql, 9, 10);
+    $bar = $PageBar['bar'];
+    $sql = $PageBar['sql'];
     $result = $db->query($sql) or die($db->error);
     $all    = array();
     $i      = 0;
@@ -164,6 +174,7 @@ function list_photo($sn)
     }
     // die(var_export($all));
     $smarty->assign('all', $all);
+    $smarty->assign('bar', $bar);
 }
 
 //讀出一則分類資料

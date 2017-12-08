@@ -50,9 +50,24 @@
                 {/foreach}
                 
 
-
             </div>
-    <div class="empty-space col-xs-b55 col-sm-b110"></div>
+    
+    
+
+    <div class="empty-space col-xs-b55 col-sm-b110"></div>    
+    {$bar}
+    <!-- <div class="container">
+        <div class="page-pagination">
+            <a>previous</a>
+            <a class="active">1</a>
+            <a>2</a>
+            <a>3</a>
+            <a>4</a>
+            <a>...</a>
+            <a>next</a>
+        </div>
+        <div class="empty-space col-xs-b55 col-sm-b110"></div>
+    </div> -->
     <style>
         footer {
             display: none;
