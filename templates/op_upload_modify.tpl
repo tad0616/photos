@@ -12,7 +12,7 @@
                         <select class="form-control" name="classify_sn" id="classify">
                             <option disabled="disabled" selected="true">--請選擇--</option>
                             {foreach $list_classify as $classify}
-                            <option value="{$classify.sn}">{$classify.title}</option>
+                            <option value="{$classify.sn}" {if {$classify.sn}=="{$photo.classify_sn}"} selected="selected"{/if}>{$classify.title}</option>
                             {/foreach}
                         </select>
                     </div>
