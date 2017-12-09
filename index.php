@@ -164,6 +164,8 @@ function list_photo($sn)
     global $db, $smarty;
 
     $sql    = "SELECT * FROM `photo` WHERE `classify_sn`='$sn' ORDER BY `create_time` DESC";
+
+    
     include_once "PageBar.php";
     $PageBar = getPageBar($db, $sql, 6, 10);
     $bar = $PageBar['bar'];
@@ -204,27 +206,44 @@ function show_photo($sn)
 
     //一筆資料
     $sql    = "SELECT * FROM `photo` WHERE `sn`='$sn'";
+    //$sql    = "SELECT a.*, b.* FROM `左表` AS a JOIN `右表` AS b ON a.欄位 = b.欄位 WHERE 條件";
+
+    //$sql = "SELECT a.*, b.* FROM `photo` AS a JOIN `classify` AS b ON a.`classify_sn` = b.`title` WHERE `sn`='$sn'";
+    
     $result = $db->query($sql) or die($db->error);
     $data   = $result->fetch_assoc();
     $data['content'] = $purifier->purify($data['content']);
     $data['description_n2br'] = str_replace("\n", '<br />', $data['description']);
     $data['summary']          = mb_substr(strip_tags($data['description']), 0, 90);
     $data['display_time']     = date("d M Y", strtotime($data['update_time']));
-    $smarty->assign('photo', $data);
 
     //上一筆
     $sql = "SELECT * FROM `photo` WHERE `sn` > '{$data['sn']}' ORDER BY `sn` LIMIT 0,1";
     $result = $db->query($sql) or die($db->error);
     $previous = $result->fetch_assoc();
     $previous['title'] = mb_substr($previous['title'], 0, 16) . '...';
-    $smarty->assign('prev', $previous);
 
     //下一筆
     $sql = "SELECT * FROM `photo` WHERE `sn` < '{$data['sn']}' ORDER BY `sn` DESC LIMIT 0,1";
     $result = $db->query($sql) or die($db->error);
     $next = $result->fetch_assoc();
     $next['title'] = mb_substr($next['title'], 0, 16) . '...';
+
+
+    //date_default_timezone_set('Europe/Brussels');
+    // if (!is_file($autoloadFile = __DIR__ . '/vendor/autoload.php')) {
+    //     echo 'Could not find "vendor/autoload.php". Did you forget to run "composer install --dev"?' . PHP_EOL;
+    //     exit(1);
+    // }
+    // $autoloader = require $autoloadFile;
+    // define('PHPEXIF_TEST_ROOT', __DIR__);
+    
+
+
+    $smarty->assign('photo', $data);
+    $smarty->assign('prev', $previous);
     $smarty->assign('next', $next);    
+
 }
 
 //上傳作品照片

@@ -80,7 +80,6 @@
             <div class="h5"><b>- EXIF資訊 -</b></div>
             <div class="empty-space col-xs-b30"></div>
             <div class="simple-article large grey text-left">
-                 &nbsp;
             </div>
         </div>
     </div>
