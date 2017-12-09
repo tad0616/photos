@@ -1,4 +1,25 @@
-{include file="_header.tpl"}
+<!-- HEADER -->
+<header class="type-4 fixed light">
+    <div class="wide-container-fluid">
+        <div class="row">
+            <div class="col-xs-6 col-sm-2">
+                <a class="logo" href="index.php"><img src="img/logo1.png" alt="{_SITE_TITLE}" /></a>
+            </div>
+            <div class="col-xs-6 col-sm-10 text-right">
+                {include file="_nav.tpl"}
+            </div>
+        </div>
+</header>
+<style>
+    nav li a {
+        font-size: 16px!important;
+        font-weight: bolder!important;
+        font-family: 微軟正黑體!important;
+        color: #fff!important;
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8);
+        /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); */
+    }
+</style>
 {if isset($smarty.session.username) and $smarty.session.username=='admin'}
 <form action="admin_classify.php" method="post" enctype="multipart/form-data" id="myform">
     <h2 class="form-signin-heading"><b>新增作品分類</b></h2>
@@ -36,3 +57,8 @@
 </div>
 {/if}
         <div class="empty-space col-xs-b55 col-sm-b110"></div>
+<style>
+    footer {
+        display: none;
+    }
+</style>

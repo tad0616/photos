@@ -15,6 +15,7 @@ nav li a {
   font-size:16px!important;
   font-weight: bolder!important;
   font-family: 微軟正黑體!important;
+  color:#fff!important;
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8);
   /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); */
 }     
