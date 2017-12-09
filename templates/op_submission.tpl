@@ -1,4 +1,4 @@
-
+{include file="_header.tpl"}
 <div class="fixed-background" style="background-image: url(images/pic1.jpg);">
     <div class="page-height">
         <div class="full-size-banner-entry full-size valign-middle">

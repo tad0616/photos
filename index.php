@@ -139,7 +139,7 @@ function list_allphoto()
 
     $sql    = "SELECT * FROM `photo` ORDER BY `create_time` DESC";
     include_once "PageBar.php";
-    $PageBar = getPageBar($db, $sql, 9, 10);
+    $PageBar = getPageBar($db, $sql, 6, 10);
     $bar = $PageBar['bar'];
     $sql = $PageBar['sql'];
     $total = $PageBar['total'];
@@ -163,7 +163,7 @@ function list_photo($sn)
 
     $sql    = "SELECT * FROM `photo` WHERE `classify_sn`='$sn' ORDER BY `create_time` DESC";
     include_once "PageBar.php";
-    $PageBar = getPageBar($db, $sql, 9, 10);
+    $PageBar = getPageBar($db, $sql, 6, 10);
     $bar = $PageBar['bar'];
     $sql = $PageBar['sql'];
     $result = $db->query($sql) or die($db->error);

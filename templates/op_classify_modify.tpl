@@ -1,3 +1,4 @@
+{include file="_header.tpl"}
                         {if isset($smarty.session.username) and $smarty.session.username=='admin'}
                         <form action="admin_classify.php?op=modify&sn={$classify.sn}" method="post" enctype="multipart/form-data" id="myform">
                             <h2 class="form-signin-heading"><b>修改作品分類</b></h2>

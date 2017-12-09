@@ -1,3 +1,4 @@
+{include file="_header.tpl"}
 <div class="wide-container">
     <div class="header-empty-space"></div>
 
