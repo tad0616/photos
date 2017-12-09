@@ -7,6 +7,9 @@
         <nav class="text-left clearfix">
             <ul>
                 <li>
+                    <a href="javascript:;" style="text-shadow:none;cursor:default;">Hi! {$smarty.session.username}</a>
+                </li>
+                <li>
                     <a href="admin_classify.php?op=classify_insert">新增作品分類</a>
                 </li>
                 <li>
@@ -15,12 +18,25 @@
             </ul>
         </nav>
     </div>
-    {else if isset($smarty.session.username)}
+    {elseif isset($smarty.session.username)}
     <div class="navigation-overflow">
         <nav class="text-left clearfix">
             <ul>
                 <li>
+                    <a href="javascript:;" style="text-shadow:none;cursor:default;">Hi! {$smarty.session.username}</a>
+                </li>
+                <li>
                     <a href="logout.php">登出</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    {else}
+    <div class="navigation-overflow">
+        <nav class="text-left clearfix">
+            <ul>
+                <li>
+                    <a href="main_login.php">學員登入</a>
                 </li>
             </ul>
         </nav>

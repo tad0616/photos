@@ -26,7 +26,7 @@
         <div class="container">
             <div class="col-md-10 col-md-offset-1">
                 {if {$lastPic.create_time} > {$date.begin}}
-                <div style="text-align:center;padding:100px;height:200px;background:rgba(255,255,255,0.5)">
+                <div style="text-align:center;padding:100px;height:400px;background:rgba(255,255,255,0.5)">
                     本週已上傳過作品
                 </div>
                 {else}
