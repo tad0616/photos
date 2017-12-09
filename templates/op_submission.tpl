@@ -42,8 +42,7 @@
 <div class="container">
     <div class="empty-space col-xs-b55 col-sm-b110"></div>
 
-    {$date.begin}<br>
-    {$date.end}
+
     <div class="row col-xs-text-center col-sm-text-right">
         <div class="col-sm-3 col-sm-offset-1">
             <div class="h3"><b>成為會員</b></div>
@@ -98,9 +97,22 @@
             </div>
             <div class="empty-space col-xs-b15"></div>
             <div class="empty-space col-xs-b10 col-sm-b0"></div>
+    <!-- {$date.begin}<br>
+    {$date.end}<br> -->
+    
+            {if {$lastPic.create_time} > {$date.begin}}
+            <a href="javascripts:;" class="btn btn-lg btn-success btn-xlarge disabled">
+                <i class="fa fa-camera" aria-hidden="true"></i>&nbsp;&nbsp;本週已上傳
+            </a>
+            {elseif {$lastPic.create_time} == NULL}
             <a href="index.php?op=upload" class="btn btn-lg btn-success btn-xlarge">
                 <i class="fa fa-camera" aria-hidden="true"></i>&nbsp;&nbsp;上 傳 作 品
             </a>
+            {else}
+            <a href="index.php?op=upload" class="btn btn-lg btn-success btn-xlarge">
+                <i class="fa fa-camera" aria-hidden="true"></i>&nbsp;&nbsp;上 傳 作 品
+            </a>
+            {/if}
             
         </div>
     </div>

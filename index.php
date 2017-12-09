@@ -10,7 +10,8 @@ $sn = isset($_REQUEST['sn']) ? (int) $_REQUEST['sn'] : 0;
 /***************** ↓ 流程控制區 ↓ ********************/
 switch ($op) {
     case 'submission':
-        getWeekTime();
+        //getWeekTime();
+        checkUploaded();
         $op = 'submission';
         break;
 
@@ -47,7 +48,8 @@ switch ($op) {
 
     case 'upload': //上傳照片的表單
         require "loginheader.php";
-        $op = 'upload';        
+        $op = 'upload';     
+        checkUploaded();   
         list_classify(); //列出下拉選單show分類
         break;
 
@@ -196,14 +198,15 @@ function show_photo($sn)
 {
     global $db, $smarty;
 
-    // require_once 'HTMLPurifier/HTMLPurifier.auto.php';
-    // $config   = HTMLPurifier_Config::createDefault();
-    // $purifier = new HTMLPurifier($config);
+    require_once 'HTMLPurifier/HTMLPurifier.auto.php';
+    $config   = HTMLPurifier_Config::createDefault();
+    $purifier = new HTMLPurifier($config);
 
+    //一筆資料
     $sql    = "SELECT * FROM `photo` WHERE `sn`='$sn'";
     $result = $db->query($sql) or die($db->error);
     $data   = $result->fetch_assoc();
-    // $data['content'] = $purifier->purify($data['content']);
+    $data['content'] = $purifier->purify($data['content']);
     $data['description_n2br'] = str_replace("\n", '<br />', $data['description']);
     $data['summary']          = mb_substr(strip_tags($data['description']), 0, 90);
     $data['display_time']     = date("d M Y", strtotime($data['update_time']));
@@ -271,4 +274,24 @@ function getWeekTime()
 
     $smarty->assign('date', $date);
 
+}
+
+//
+function checkUploaded(){
+    global $db, $smarty;
+
+    //捉出當週　周一和週日的日期
+    $w             = date('w'); //星期五
+    $date          = [];
+    $date['begin'] = date('Y-m-d 00:00:00', time() - ($w - 1) * 86400); //2017-12-8 00:00, 10:48 - (5-1) * 86400
+    $date['end']   = date('Y-m-d 23:59:59', time() + (7 - $w) * 86400); //2017-12-8 23:59, 10:48 + (7-5) * 86400
+    //return $date;
+    
+    //檢查使用者最新上傳的照片日期
+    $sql    = "SELECT * FROM `photo` WHERE username='{$_SESSION['username']}' ORDER BY `create_time` LIMIT 0,1";
+    $result = $db->query($sql) or die($db->error);
+    $data   = $result->fetch_assoc();
+
+    $smarty->assign('date', $date);
+    $smarty->assign('lastPic', $data);
 }
