@@ -205,10 +205,15 @@ function show_photo($sn)
     $purifier = new HTMLPurifier($config);
 
     //一筆資料
-    $sql    = "SELECT * FROM `photo` WHERE `sn`='$sn'";
+    //$sql    = "SELECT * FROM `photo` WHERE `sn`='$sn'";
     //$sql    = "SELECT a.*, b.* FROM `左表` AS a JOIN `右表` AS b ON a.欄位 = b.欄位 WHERE 條件";
+    //$sql = "SELECT a.*, b.* FROM photo AS a JOIN classify AS b ON a.classify_sn= b.sn WHERE `sn`='$sn'";
 
-    //$sql = "SELECT a.*, b.* FROM `photo` AS a JOIN `classify` AS b ON a.`classify_sn` = b.`title` WHERE `sn`='$sn'";
+
+    $sql = "SELECT photo.*, classify.* FROM photo INNER JOIN classify ON photo.classify_sn=classify.sn WHERE photo.sn='$sn';";    
+
+    
+
     
     $result = $db->query($sql) or die($db->error);
     $data   = $result->fetch_assoc();

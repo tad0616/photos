@@ -2,9 +2,8 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-error_reporting(E_ALL);
-
-//error_reporting(0);
+//error_reporting(E_ALL);
+error_reporting(0);
 
 
 require_once '_setup.php';
